@@ -1,0 +1,49 @@
+services:
+  database:
+    container_name: micro_db
+    image: 'postgres:alpine'
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgresql_data:/var/lib/postgresql'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+    networks:
+      - app-net
+
+  file_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.file_service
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./FILE_SERVICE:/api/FILE_SERVICE
+    environment:
+      - DATABASE_URL=postgresql://postgres:docker@localhost:5432/client?schema=public
+    command: npm run dev  # Comando para iniciar o FILE_SERVICE
+    networks:
+      - app-net
+
+  mock:
+    build:
+      context: .
+      dockerfile: Dockerfile.mock
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./MOCK:/api/MOCK
+    environment:
+      - DATABASE_URL=postgresql://postgres:docker@localhost:5432/order?schema=public
+    command: npm run dev  # Comando para iniciar o MOCKup
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
+
+volumes:
+  postgresql_data:
+    driver: local

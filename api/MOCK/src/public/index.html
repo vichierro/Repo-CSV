@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DADOS MOCK</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de dados (MOCK)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>External ID</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="customer-list">
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const customerList = document.getElementById('customer-list');
+
+            async function fetchCustomers() {
+                try {
+                    const response = await fetch('/customers');
+                    if (response.ok) {
+                        const customers = await response.json();
+                        renderCustomers(customers);
+                    } else {
+                        const error = await response.json();
+                        alert('Error: ' + error.error);
+                    }
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            }
+
+            function renderCustomers(customers) {
+                customers.forEach(customer => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${customer.id}</td>
+                        <td>${customer.externalId}</td>
+                        <td>${customer.email}</td>
+                    `;
+                    customerList.appendChild(row);
+                });
+            }
+
+            fetchCustomers();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Use the official Node.js image with the specified version
+FROM node:18.20.2
+
+# Set the working directory inside the container
+WORKDIR /api/FILE_SERVICE
+
+# Copy the package.json and package-lock.json files
+COPY FILE_SERVICE/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application files
+COPY MOCK ./
+
+# Run Prisma migrations
+RUN npx prisma migrate dev --name create-customer
+
+# Exponha a porta em que o MOCK estará em execução
+EXPOSE 3002
+
+# Command to run the application
+RUN npm run dev 

@@ -1,0 +1,5 @@
+name,password,email,phone
+John Doe,password123,johndoe@example.com,1234567890
+Jane Smith,password456,janesmith@example.com,0987654321
+Alice Johnson,password789,alicejohnson@example.com,1122334455
+Bob Brown,password101,bobbrown@example.com,5566778899
