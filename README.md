@@ -115,7 +115,7 @@ npx prisma studio
 ## Estrutura do Projeto
 
 - `api/FILE_SERVICE`: Contém a API principal, que lida com o processamento de arquivos CSV e interage com o banco de dados.
-- `api/MOCK`: Contém uma API de mock para testes e simulações.
+- `api/MOCK`: Contém uma API de mock que funciona como repositório para as informações processadas em FILE_SERVICE, podendo realizar também escrita, remoção e atualização de dados do seu database.
 - `csv`: Pasta contendo arquivos CSV de exemplo para upload.
 - `docker-compose.yml`: Arquivo de configuração do Docker Compose para iniciar os contêineres.
 - `README.md`: Este arquivo, contendo instruções detalhadas sobre como executar o projeto.
