@@ -63,9 +63,13 @@ docker-compose up
 ```
 ## Passo 3: Configurar e Iniciar a API FILE_SERVICE
 
-1. Navegue até a pasta `api/FILE_SERVICE`:
+1. Navegue até a pasta `api/FILE_SERVICE` e crie arquivo `.env`:
 ```
 cd api/FILE_SERVICE
+```
+Insira as seguintes credencias no arquivo `.env` criado:
+```
+DATABASE_URL="postgresql://postgres:docker@localhost:5432/client?schema=public"
 ```
 2. Instale as depedências e inicie o servidor
 ```
@@ -82,9 +86,13 @@ npx prisma studio
 ```
 ## Passo 3: Configurar e Iniciar a API MOCK
 
-1. Abra um novo terminal e navegue até a pasta `api/MOCK`:
+1. Abra um novo terminal e navegue até a pasta `api/MOCK` e crie arquivo `.env`:
 ```
 cd api/MOCK
+```
+Insira as seguintes credencias no arquivo `.env` criado:
+```
+DATABASE_URL="postgresql://postgres:docker@localhost:5432/order?schema=public"
 ```
 2. Instale as depedências e inicie o servidor
 ```
