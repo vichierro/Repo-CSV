@@ -84,7 +84,7 @@ npx prisma migrate dev --name create-customer
 ```
 npx prisma studio
 ```
-## Passo 3: Configurar e Iniciar a API MOCK
+## Passo 4: Configurar e Iniciar a API MOCK
 
 1. Abra um novo terminal e navegue até a pasta `api/MOCK` e crie arquivo `.env`:
 ```
@@ -107,7 +107,7 @@ npx prisma migrate dev --name create-customer
 ```
 npx prisma studio
 ```
-## Passo 4: Upload de CSV
+## Passo 5: Upload de CSV
 1. Acesse o servidor do FILE_SERVICE pelo navegador em http://localhost:3001.
 2. Na página exibida faça o upload de um dos arquivos CSVs disponíveis na pasta `csv`.
 3. Após o upload do CSV, você pode acompanhar o fluxo de dados nos dois Prisma Studios abertos. Verifique as tabelas nos dois bancos de dados para observar as alterações e inserções de dados.
