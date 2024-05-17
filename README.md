@@ -1,6 +1,6 @@
 # Introdução ao Projeto
 
-Este projeto consiste em duas APIs distintas: uma na pasta `FILE_SERVICE` e outra na pasta `MOCK`. Cada uma dessas APIs possui funcionalidades específicas e se comunica com um banco de dados PostgreSQL por meio do ORM Prisma.
+Este projeto consiste em duas APIs distintas: uma na pasta `FILE_SERVICE` e outra na pasta `MOCK`. Cada uma dessas APIs possui funcionalidades específicas e se comunica com um banco de dados PostgreSQL por meio do ORM Prisma. Esta é uma aplicação do uso de microserviços utilizando o Apache Kafka.
 
 ## Requisitos
 
