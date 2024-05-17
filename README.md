@@ -52,7 +52,7 @@ npm -v # should print `10.5.0`
 ## Passo 1: Clonar o Repositório
 Clone este repositório em sua máquina local
 ```
-git clone <repo>
+git clone https://github.com/vichierro/Repo-CSV.git
 ```
 ## Passo 2: Construir e Iniciar os Contêineres Docker
 
